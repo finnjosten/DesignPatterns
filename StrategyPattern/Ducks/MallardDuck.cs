@@ -12,23 +12,16 @@ namespace StrategyPattern.Ducks
 {
     internal class MallardDuck : Duck
     {
-        public MallardDuck() { }
+        public MallardDuck()
+        {
+            SetFlyBehavior(new FlyWithWings());
+            SetQuackBehavior(new RegularQuack());
+            SetSwimBehavior(new Float());
+        }
         
         public override void Display()
         {
             Console.WriteLine("I'm a Mallard Duck");
-        }
-
-        public override void SetFlyBehavior(FlyBehavior flyBehavior)
-        {
-            this.flyBehavior = new FlyWithWings();
-        }
-        public override void SetQuackBehavior(QuackBehavior quackBehavior) {
-            this.quackBehavior = new RegularQuack();
-        }
-        public override void SetSwimBehavior(SwimBehavior swimBehavior)
-        {
-            this.swimBehavior = new Float();
         }
     }
 }

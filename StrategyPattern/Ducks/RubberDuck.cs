@@ -12,23 +12,16 @@ namespace StrategyPattern.Ducks
 {
     internal class RubberDuck : Duck
     {
-        public RubberDuck() { }
+        public RubberDuck()
+        {
+            SetFlyBehavior(new FlyNoWay());
+            SetQuackBehavior(new Squeak());
+            SetSwimBehavior(new Float());
+        }
         
         public override void Display()
         {
             Console.WriteLine("I'm a Rubber Duck");
-        }
-
-        public override void SetFlyBehavior(FlyBehavior flyBehavior)
-        {
-            this.flyBehavior = new FlyNoWay();
-        }
-        public override void SetQuackBehavior(QuackBehavior quackBehavior) {
-            this.quackBehavior = new Squeak();
-        }
-        public override void SetSwimBehavior(SwimBehavior swimBehavior)
-        {
-            this.swimBehavior = new Float();
         }
     }
 }

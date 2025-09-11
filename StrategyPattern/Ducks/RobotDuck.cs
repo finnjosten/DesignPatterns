@@ -12,23 +12,16 @@ namespace StrategyPattern.Ducks
 {
     internal class RobotDuck : Duck
     {
-        public RobotDuck() { }
+        public RobotDuck()
+        {
+            SetFlyBehavior(new FlyWithRockets());
+            SetQuackBehavior(new ElectronicQuack());
+            SetSwimBehavior(new Sink());
+        }
         
         public override void Display()
         {
             Console.WriteLine("I'm a Robot Duck");
-        }
-
-        public override void SetFlyBehavior(FlyBehavior flyBehavior)
-        {
-            this.flyBehavior = new FlyWithRockets();
-        }
-        public override void SetQuackBehavior(QuackBehavior quackBehavior) {
-            this.quackBehavior = new ElectronicQuack();
-        }
-        public override void SetSwimBehavior(SwimBehavior swimBehavior)
-        {
-            this.swimBehavior = new Sink();
         }
     }
 }

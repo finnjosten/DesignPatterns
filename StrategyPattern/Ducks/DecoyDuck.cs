@@ -12,24 +12,16 @@ namespace StrategyPattern.Ducks
 {
     internal class DecoyDuck : Duck
     {
-        public DecoyDuck() { }
+        public DecoyDuck()
+        {
+            SetFlyBehavior(new FlyNoWay());
+            SetQuackBehavior(new MuteQuack());
+            SetSwimBehavior(new Float());
+        }
         
         public override void Display()
         {
             Console.WriteLine("I'm a Decoy Duck");
-        }
-
-        public override void SetFlyBehavior(FlyBehavior flyBehavior)
-        {
-            this.flyBehavior = new FlyNoWay();
-        }
-        public override void SetQuackBehavior(QuackBehavior quackBehavior)
-        {
-            this.quackBehavior = new MuteQuack();
-        }
-        public override void SetSwimBehavior(SwimBehavior swimBehavior)
-        {
-            this.swimBehavior = new Float();
         }
     }
 }

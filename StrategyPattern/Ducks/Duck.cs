@@ -16,13 +16,21 @@ namespace StrategyPattern.Ducks
         protected QuackBehavior? quackBehavior;
         protected SwimBehavior? swimBehavior;
 
-        public abstract void SetFlyBehavior(FlyBehavior flyBehavior);
-        public abstract void SetQuackBehavior(QuackBehavior quackBehavior);
-        public abstract void SetSwimBehavior(SwimBehavior swimBehavior);
-
         public abstract void Display();
 
-        public void PerformQuack()  { quackBehavior?.Quack(); }
+        public void SetFlyBehavior(FlyBehavior flyBehavior)
+        {
+            this.flyBehavior = flyBehavior;
+        }
+        public void SetQuackBehavior(QuackBehavior quackBehavior) {
+            this.quackBehavior = quackBehavior;
+        }
+        public void SetSwimBehavior(SwimBehavior swimBehavior)
+        {
+            this.swimBehavior = swimBehavior;
+        }
+        
+        public void PerformQuack() { quackBehavior?.Quack(); }
         public void PerformFly()    { flyBehavior?.Fly(); }
         public void PerformSwim()   { swimBehavior?.Swim(); }
     }

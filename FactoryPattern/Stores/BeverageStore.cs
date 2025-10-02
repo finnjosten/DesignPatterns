@@ -11,11 +11,11 @@ namespace FactoryPattern.Stores
             this.factory = factory;
         }
 
-        public Beverage OrderBeverage(string type)
+        public Beverage OrderBeverage(string type, string size = "")
         {
             Beverage beverage = factory.CreateBeverage(type);
+            beverage.SetSize(size);
 
-            Console.WriteLine("\n");
             Console.WriteLine(beverage.GetDescription() + " €" +  beverage.cost().ToString("#.##"));
 
             return beverage;

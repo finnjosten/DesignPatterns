@@ -11,7 +11,13 @@ namespace FactoryPattern
         {
             BeverageStore store = new BeverageStore(new BeverageFactory());
 
+            Console.WriteLine("Welcome to the Coffee Shop! Here is our menu:");
 
+            Console.WriteLine("=============================================== Tall =============================================");
+            Bev::Beverage TallEspresso = store.OrderBeverage("Espresso", "tall");
+            Console.Write("\n\n\n");
+
+            Console.WriteLine("=============================================== Grande =============================================");
             Bev::Beverage Espresso = store.OrderBeverage("Espresso");
             Bev::Beverage Doppio = store.OrderBeverage("Doppio");
             Bev::Beverage Lungo = store.OrderBeverage("Lungo");
@@ -40,6 +46,15 @@ namespace FactoryPattern
             Bev::Beverage Frappuccino = store.OrderBeverage("Frappuccino");
             Bev::Beverage CaramelFrappuccino = store.OrderBeverage("CaramelFrappuccino");
             Bev::Beverage Frappe = store.OrderBeverage("Frappe");
-            Bev::Beverage IrishCoffee = store.OrderBeverage("IrishCoffee");        }
+            Bev::Beverage IrishCoffee = store.OrderBeverage("IrishCoffee");
+            Console.Write("\n\n\n");
+
+            Console.WriteLine("=============================================== Vendi =============================================");
+            Bev::Beverage VendiEspresso = store.OrderBeverage("Espresso", "vendi");
+            Console.Write("\n\n\n");
+
+
+
+        }
     }
 }

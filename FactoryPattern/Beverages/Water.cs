@@ -8,6 +8,8 @@ namespace FactoryPattern.Beverages
 {
     internal class Water : Beverage
     {
+        private readonly Double price = 0.50;
+
         public Water(Beverage beverage = null)
         {
             description = "Water";
@@ -24,11 +26,28 @@ namespace FactoryPattern.Beverages
         }
         public override double cost()
         {
+            double sizeCost = 0;
+            switch (Size)
+            {
+                case Size.TALL:
+                    sizeCost = 0.50;
+                    break;
+                case Size.GRANDE:
+                    sizeCost = 1.00;
+                    break;
+                case Size.VENDI:
+                    sizeCost = 1.50;
+                    break;
+                default:
+                    sizeCost = 1.00;
+                    break;
+            }
+
             if (baseBeverage != null)
             {
-                return 0.50 + baseBeverage.cost();
+                return price + sizeCost + baseBeverage.cost();
             }
-            return 0.50;
+            return price + sizeCost;
         }
     }
 }

@@ -12,6 +12,7 @@ namespace DecoratorPattern.Beverages
         GRANDE,
         VENDI
     }
+    
     internal abstract class Beverage
     {
         public Size Size { get { return size; } set { size = value; } }
@@ -19,11 +20,30 @@ namespace DecoratorPattern.Beverages
 
         protected string description = "Unknown";
         protected Beverage baseBeverage = null;
-        
+
 
         public virtual string GetDescription()
         {
             return description;
+        }
+
+        public void SetSize(string size)
+        {
+            switch (size.ToLower())
+            {
+                case "tall":
+                    this.size = Size.TALL;
+                    break;
+                case "grande":
+                    this.size = Size.GRANDE;
+                    break;
+                case "vendi":
+                    this.size = Size.VENDI;
+                    break;
+                default:
+                    this.size = Size.GRANDE;
+                    break;
+            }
         }
 
         public abstract double cost();

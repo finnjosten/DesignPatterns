@@ -153,6 +153,18 @@ namespace DecoratorPattern
             IrishCoffee = new Con::Whiskey(IrishCoffee);
             IrishCoffee = new Con::Whip(IrishCoffee);
             PrintBeverage(IrishCoffee);
+
+
+
+
+
+            Bev::Beverage VendiIrishCoffee = new Bev::Espresso();
+            VendiIrishCoffee.SetSize("vendi");
+            VendiIrishCoffee = new Con::Espresso(VendiIrishCoffee);
+            VendiIrishCoffee = new Con::Whiskey(VendiIrishCoffee);
+            VendiIrishCoffee = new Con::Whip(VendiIrishCoffee);
+            PrintBeverage(VendiIrishCoffee);
+
         }
 
         static void PrintBeverage(Bev::Beverage beverage)

@@ -3,9 +3,9 @@ namespace FactoryPattern.Interfaces.Factories
     using Bev = FactoryPattern.Beverages;
     using Con = FactoryPattern.Condiments;
 
-    internal class BeverageFactory
+    internal class BeverageFactory : Factory
     {
-        public Bev::Beverage CreateBeverage(string type)
+        public override Bev::Beverage CreateBeverage(string type)
         {
             Bev::Beverage beverage = null;
 

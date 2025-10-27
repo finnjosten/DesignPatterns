@@ -27,25 +27,6 @@ namespace DecoratorPattern.Beverages
             return description;
         }
 
-        public void SetSize(string size)
-        {
-            switch (size.ToLower())
-            {
-                case "tall":
-                    this.size = Size.TALL;
-                    break;
-                case "grande":
-                    this.size = Size.GRANDE;
-                    break;
-                case "vendi":
-                    this.size = Size.VENDI;
-                    break;
-                default:
-                    this.size = Size.GRANDE;
-                    break;
-            }
-        }
-
         public abstract double cost();
     }
 }

@@ -9,6 +9,8 @@ namespace DecoratorPattern.Condiments
 {
     internal class Chocolate : CondimentDecorator
     {
+        private double mainCost = 0.10;
+
         public Chocolate(Beverage beverage)
         {
             this.baseBeverage = beverage;
@@ -16,7 +18,24 @@ namespace DecoratorPattern.Condiments
 
         public override double cost()
         {
-            return 0.10 + baseBeverage.cost();
+            double totalCost = 0.0;
+            switch (Size)
+            {
+                case Size.TALL:
+                    totalCost = baseBeverage.cost() - mainCost;
+                    break;
+                case Size.GRANDE:
+                    totalCost = baseBeverage.cost() + mainCost;
+                    break;
+                case Size.VENDI:
+                    totalCost = baseBeverage.cost() + (2 * mainCost);
+                    break;
+                default:
+                    totalCost = baseBeverage.cost() + mainCost;
+                    break;
+            }
+
+            return totalCost;
         }
 
         public override string GetDescription()

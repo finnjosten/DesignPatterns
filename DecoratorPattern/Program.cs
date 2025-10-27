@@ -159,7 +159,7 @@ namespace DecoratorPattern
 
 
             Bev::Beverage VendiIrishCoffee = new Bev::Espresso();
-            VendiIrishCoffee.SetSize("vendi");
+            VendiIrishCoffee.Size = Bev.Size.VENDI;
             VendiIrishCoffee = new Con::Espresso(VendiIrishCoffee);
             VendiIrishCoffee = new Con::Whiskey(VendiIrishCoffee);
             VendiIrishCoffee = new Con::Whip(VendiIrishCoffee);

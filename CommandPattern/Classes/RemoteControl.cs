@@ -13,6 +13,7 @@ namespace CommandPattern.Classes
         Command[] onCommands = new Command[7];
         Command[] offCommands = new Command[7];
         Command undoCommand;
+        List<Command> commandHistory = new List<Command>();
         public RemoteControl()
         {
             Command noCommand = new NoCommand();
@@ -36,6 +37,7 @@ namespace CommandPattern.Classes
         {
             onCommands[slot].Execute();
             undoCommand = onCommands[slot];
+            commandHistory.Add(onCommands[slot]);
         }
 
         // This method must call the OffCommand.Execute() method of the slot provided
@@ -43,6 +45,17 @@ namespace CommandPattern.Classes
         {
             offCommands[slot].Execute();
             undoCommand = offCommands[slot];
+            commandHistory.Add(offCommands[slot]);
+        }
+
+        public void UndoButtonWasPushed()
+        {
+            if (commandHistory.Count > 0)
+            {
+                Command lastCommand = commandHistory[commandHistory.Count - 1];
+                lastCommand.Undo();
+                commandHistory.RemoveAt(commandHistory.Count - 1);
+            }
         }
 
         // Overwritten ToString() to print out each slot and its corresponding command.
@@ -50,9 +63,9 @@ namespace CommandPattern.Classes
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("\n----- Remote Control ----- \n");
-            for(int i = 0;i < onCommands.Length;i++)
+            for (int i = 0; i < onCommands.Length; i++)
             {
-                sb.Append("[slot " + i + "] "+ onCommands[i] + " \t\t  " + offCommands[i] + "\n");
+                sb.Append("[slot " + i + "] " + onCommands[i] + " \t\t  " + offCommands[i] + "\n");
             }
             return sb.ToString();
         }

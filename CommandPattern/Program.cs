@@ -62,23 +62,50 @@ namespace CommandPattern
             Console.WriteLine(remoteControl);
 
             // Test the pressing of Buttons here. Don't forget to test the Undo button
+            Console.WriteLine("---- Testing Remote Control ----");
+            Console.WriteLine("Slot 0 - Living Room Light");
+            Console.WriteLine("Pressing on:");
             remoteControl.OnButtonWasPushed(0);
+            Console.WriteLine("Pressing off:");
             remoteControl.OffButtonWasPushed(0);
 
+            Console.WriteLine("\nSlot 1 - Kitchen Light");
+            Console.WriteLine("Pressing on:");
             remoteControl.OnButtonWasPushed(1);
+            Console.WriteLine("Pressing off:");
             remoteControl.OffButtonWasPushed(1);
 
+            Console.WriteLine("\nSlot 2 - Living Room Ceiling Fan");
+            Console.WriteLine("Pressing on:");
             remoteControl.OnButtonWasPushed(2);
+            Console.WriteLine("Pressing off:");
             remoteControl.OffButtonWasPushed(2);
 
+            Console.WriteLine("\nSlot 3 - Garage Door");
+            Console.WriteLine("Pressing on:");
             remoteControl.OnButtonWasPushed(3);
+            Console.WriteLine("");
             remoteControl.OffButtonWasPushed(3);
 
+            Console.WriteLine("\nSlot 4 - Stereo");
+            Console.WriteLine("Pressing on:");
             remoteControl.OnButtonWasPushed(4);
+            Console.WriteLine("Pressing off:");
             remoteControl.OffButtonWasPushed(4);
 
-            //remoteControl.UndoButtonWasPushed();
 
+            Console.WriteLine("\n\n---- Undo testing ----");
+            Console.WriteLine("Last press");
+            remoteControl.UndoButtonWasPushed();
+
+            Console.WriteLine("\nSecond to last press");
+            remoteControl.UndoButtonWasPushed();
+
+            Console.WriteLine("\nThird to last press");
+            remoteControl.UndoButtonWasPushed();
+
+            Console.WriteLine("\nFourth to last press");
+            remoteControl.UndoButtonWasPushed();
         }
     }
 }

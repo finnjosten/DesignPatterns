@@ -49,10 +49,5 @@ namespace CommandPattern.Classes
         {
             return speed;
         }
-
-        public void SetSpeed(int speed)
-        {
-            this.speed = speed;
-        }
     }
 }

@@ -25,7 +25,21 @@ namespace CommandPattern.Classes.Commands
 
         public void Undo()
         {
-            ceilingFan.SetSpeed(prevSpeed);
+            switch (prevSpeed)
+            {
+                case 3:
+                    ceilingFan.High();
+                    break;
+                case 2:
+                    ceilingFan.Medium();
+                    break;
+                case 1:
+                    ceilingFan.Low();
+                    break;
+                case 0:
+                    ceilingFan.Off();
+                    break;
+            }
         }
     }
 }
